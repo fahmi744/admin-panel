@@ -107,7 +107,7 @@
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mt-8">
 
     <div class="bg-white rounded-xl shadow-sm p-6 xl:col-span-2">
-        <h2 class="text-lg font-semibold text-gray-700 mb-4">Grafik Orders Bulanan</h2>
+        <h2 class="text-lg font-semibold text-gray-700 mb-4">Grafik Orders Bulan</h2>
         <canvas id="ordersChart" height="120"></canvas>
     </div>
 
