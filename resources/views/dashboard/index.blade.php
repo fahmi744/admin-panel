@@ -23,10 +23,7 @@
 
     <div class="bg-white rounded-xl shadow-sm p-5 flex items-center gap-4">
         <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
+            💰
         </div>
         <div>
             <p class="text-sm text-gray-500">Revenue</p>
@@ -37,10 +34,7 @@
 
     <div class="bg-white rounded-xl shadow-sm p-5 flex items-center gap-4">
         <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-            </svg>
+            📦
         </div>
         <div>
             <p class="text-sm text-gray-500">Orders</p>
@@ -51,10 +45,7 @@
 
     <div class="bg-white rounded-xl shadow-sm p-5 flex items-center gap-4">
         <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-500">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-            </svg>
+            🛒
         </div>
         <div>
             <p class="text-sm text-gray-500">Products</p>
@@ -65,7 +56,8 @@
 
 </div>
 
-{{-- Tabel Recent Orders --}}
+
+{{-- Tabel Recent Orders (TIDAK DIUBAH) --}}
 <div class="bg-white rounded-xl shadow-sm p-6">
     <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-semibold text-gray-700">Recent Orders</h2>
@@ -88,32 +80,104 @@
                     <td class="py-3 pr-4">Budi Santoso</td>
                     <td class="py-3 pr-4">Laptop Gaming</td>
                     <td class="py-3 pr-4">Rp 15.000.000</td>
-                    <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Selesai</span></td>
+                    <td class="py-3">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                            Selesai (49%)
+                        </span>
+                    </td>
                 </tr>
                 <tr class="hover:bg-gray-50 transition">
                     <td class="py-3 pr-4 font-medium">#ORD-002</td>
                     <td class="py-3 pr-4">Siti Aminah</td>
                     <td class="py-3 pr-4">Smartphone</td>
                     <td class="py-3 pr-4">Rp 5.500.000</td>
-                    <td class="py-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">Proses</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="py-3 pr-4 font-medium">#ORD-003</td>
-                    <td class="py-3 pr-4">Eko Prasetyo</td>
-                    <td class="py-3 pr-4">Headphone</td>
-                    <td class="py-3 pr-4">Rp 850.000</td>
-                    <td class="py-3"><span class="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">Batal</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="py-3 pr-4 font-medium">#ORD-004</td>
-                    <td class="py-3 pr-4">Dewi Rahayu</td>
-                    <td class="py-3 pr-4">Monitor 4K</td>
-                    <td class="py-3 pr-4">Rp 4.200.000</td>
-                    <td class="py-3"><span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Dikirim</span></td>
+                    <td class="py-3">
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium">
+                            Proses (25%)
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+{{-- Grafik --}}
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mt-8">
+
+    <div class="bg-white rounded-xl shadow-sm p-6 xl:col-span-2">
+        <h2 class="text-lg font-semibold text-gray-700 mb-4">Grafik Orders Bulanan</h2>
+        <canvas id="ordersChart" height="120"></canvas>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+        <h2 class="text-lg font-semibold text-gray-700 mb-4">Status Orders</h2>
+        <canvas id="statusChart" height="200"></canvas>
+
+        {{-- TEXT TENGAH --}}
+        <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            <p class="text-gray-400 text-sm">Total Orders</p>
+            <p class="text-xl font-bold text-gray-800">370</p>
+        </div>
+    </div>
+
+</div>
+
+@endsection
+
+
+@section('scripts')
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const dataStatus = [180, 90, 40, 60];
+    const labelsStatus = ['Selesai','Proses','Batal','Dikirim'];
+
+    const total = dataStatus.reduce((a, b) => a + b, 0);
+
+    const labelsDenganPersen = dataStatus.map((val, i) => {
+        const persen = Math.round((val / total) * 100);
+        return `${labelsStatus[i]} (${persen}%)`;
+    });
+
+    new Chart(document.getElementById('ordersChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Jan','Feb','Mar','Apr','Mei','Jun'],
+            datasets: [{
+                data: [50,80,65,90,120,100],
+                backgroundColor: '#4f46e5',
+                borderRadius: 6
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    new Chart(document.getElementById('statusChart'), {
+        type: 'doughnut',
+        data: {
+            labels: labelsDenganPersen,
+            datasets: [{
+                data: dataStatus,
+                backgroundColor: ['#22c55e','#f59e0b','#ef4444','#3b82f6']
+            }]
+        },
+        options: {
+            cutout: '70%',
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+
+});
+</script>
 
 @endsection
